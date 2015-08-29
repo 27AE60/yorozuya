@@ -9,12 +9,19 @@ yorozuya.use(bodyParser.json()); // accept JSON data, e.g. get JSON data from PO
 yorozuya.use(mdw.cors()); // enable Cross Origin Resource Sharing (CORS)
 yorozuya.use(require('morgan')('dev')); /* logger */
 
+// Start db connection
+yorozuya.use(mdw.createConnection);
+
 // Application routes
 yorozuya.use('/events', require('./routes/event.js'));
+yorozuya.use('/users', require('./routes/user.js'));
 
 // Error handlers
 yorozuya.use(mdw.logErrors());
 yorozuya.use(mdw.clientErrorHandler());
 yorozuya.use(mdw.errorHandler());
+
+// Close db connection
+yorozuya.use(mdw.closeConnection);
 
 module.exports = yorozuya;

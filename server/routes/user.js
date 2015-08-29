@@ -8,21 +8,27 @@ function handleError(res, error) {
   return res.status(500).send({error: error.message});
 }
 
-/* get events list, filter by userId, startingAt and endingAt */
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   var params = req.query;
   console.log('params', params);
-  return res.status(200).send("Yo Baby! On a Roll");
+
+  r.db('yorozuya').table('users').filter(r.row('id').eq(params.id)).
+    run(req._rdbConn, function(err, cursor) {
+    if (err) throw err;
+
+    cursor.toArray(function(err, result) {
+      if (err) throw err;
+      res.status(200).send(JSON.stringify(result, null, 2));
+    });
+  });
 });
 
 /* post an event */
 router.post('/', function(req, res, next) {
   var params = req.body;
   params.createdAt = r.now();
-  params.startingAt = new Date(params.startingAt);
-  params.endingAt = new Date(params.endingAt);
 
-  r.db('yorozuya').table('events').insert(params, {returnChanges: true}).run(req._rdbConn, function(error, result) {
+  r.db('yorozuya').table('users').insert(params, {returnChanges: true}).run(req._rdbConn, function(error, result) {
     if (error) {
       handleError(res, error)
     }

@@ -14,6 +14,7 @@ yorozuya.use(mdw.createConnection);
 
 // Application routes
 yorozuya.use('/events', require('./routes/event.js'));
+yorozuya.use('/users', require('./routes/user.js'));
 
 // Error handlers
 yorozuya.use(mdw.logErrors());

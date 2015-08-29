@@ -1,0 +1,35 @@
+{
+  "name": "yorozuya",
+  "version": "1.0.0",
+  "description": "Weekend planner, invite friends and some crazy shit. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/27AE60/yorozuya.git"
+  },
+  "keywords": [
+    "weekend",
+    "planner",
+    "diy",
+    "google",
+    "calendar",
+    "calendar"
+  ],
+  "author": "27AE60",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/27AE60/yorozuya/issues"
+  },
+  "homepage": "https://github.com/27AE60/yorozuya#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "rethinkdb": "^2.1.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.13.3"
+  }
+}

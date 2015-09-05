@@ -8,14 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/27AE60/yorozuya.git"
+    "url": "git@github.com:27AE60/yorozuya.git"
   },
   "keywords": [
     "weekend",
     "planner",
     "diy",
     "google",
-    "calendar",
     "calendar"
   ],
   "author": "27AE60",
@@ -30,9 +29,7 @@
     "google-auth-library": "^0.9.6",
     "googleapis": "^2.1.3",
     "morgan": "^1.6.1",
-    "rethinkdb": "^2.1.0"
-  },
-  "devDependencies": {
+    "rethinkdb": "^2.1.0",
     "body-parser": "^1.13.3"
   }
 }
